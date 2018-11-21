@@ -2,9 +2,11 @@
 
 season=$1
 episode=$2
-############## you have to change the following two entries ############
+############## you have to change the location ############
 location="/D/Modern_Family"
-extension=".mkv"
+
+allextentions=( mkv .mp4 .MP4 .MKV .avi .AVI .wmv .WMV .mov .MOV .flv .FLV )
+numberofextentions=${#allextentions[@]}
 
 ##checking if all seasons are over
 total_seasons=`ls "$location" | wc -l`
@@ -15,7 +17,13 @@ fi
 
 serial_directory=`ls "$location" | head -$season | tail -1` 
 
-total_episodes=`ls "$location"/"$serial_directory"/*$extension | wc -l`
+total_episodes=0
+i=-1
+while [ $total_episodes -eq 0 -a $i -lt $numberofextentions ]
+do	
+	i=`expr $i + 1`
+	total_episodes=`ls --sort=version "$location"/"$serial_directory"/*"${allextentions[i]}" | wc -l`
+done
 
 if [ $episode -gt $total_episodes ]; then
 	echo END OF CURRENT SEASON
@@ -24,7 +32,8 @@ if [ $episode -gt $total_episodes ]; then
 	exit 0
 fi
 
-episode_name=`ls  $location/"$serial_directory"/*$extension | head -$episode | tail -1`
+##--sort=version sorts in order of name including the number
+episode_name=`ls --sort=version "$location"/"$serial_directory"/*"${allextentions[i]}" | head -$episode | tail -1`
 
 echo NOW PLAYING...
 echo "SEASON = $season/$total_seasons"
