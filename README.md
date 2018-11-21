@@ -4,7 +4,8 @@ FOR STARTING A NEW SERIAL:
 
 	1. OPEN serial.sh
 	2. SET THE "location" TO THE DIRECTORY WHERE THE SEASON(S) ARE LOCATED, NOT WHERE THE EPISODES ARE, i.e. location SHOULD STRICTLY BE THE PARENT DIRECTORY OF THE EPISODES DIRECTORY
-	3. SET extension AS THE EXTENSION OF THE VIDEOS (.mkv, .mp4, etc)
+	3. You may check if the extention of your videos/songs are already in the 'allextentions' just below 'location'.
+		If not, add your extention at the end with a space
 
 
 THIS CAN ALSO WORK FOR PLAYING MUSIC
