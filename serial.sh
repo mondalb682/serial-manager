@@ -5,7 +5,7 @@ episode=$2
 ############## you have to change the location ############
 location="/D/Modern_Family"
 
-allextentions=( mkv .mp4 .MP4 .MKV .avi .AVI .wmv .WMV .mov .MOV .flv .FLV )
+allextentions=( mkv .mp4 .MP4 .MKV .avi .AVI .wmv .WMV .mov .MOV .flv .FLV .m4v .M4V )
 numberofextentions=${#allextentions[@]}
 
 ##checking if all seasons are over
